@@ -1,0 +1,5 @@
+As a driver, I want to find all the road intersections so that I am aware of where I can turn
+As the map reader, I want to be able to attribute sections of road to a 100m square so that I am able to calculate the distance between points
+As a map reader, I want to be able to identify major and minor roads by their A,B,C class as well as roadname so that I can find where I am
+As a map reader, I want to be able to generate a route between two points so that I can plan a journey
+As a map reader, I want to be able to specify a city and generate a map of that city so that I can view a local area
