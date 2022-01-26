@@ -1,5 +1,6 @@
-As a driver, I want to find all the road intersections so that I am aware of where I can turn
-As the map reader, I want to be able to attribute sections of road to a 100m square so that I am able to calculate the distance between points
-As a map reader, I want to be able to identify major and minor roads by their A,B,C class as well as roadname so that I can find where I am
-As a map reader, I want to be able to generate a route between two points so that I can plan a journey
-As a map reader, I want to be able to specify a city and generate a map of that city so that I can view a local area
+As the user I need to be able to see the shape of a road so that I am able to recognise where in the city the road is located
+As a user I need to be able to read any open source map and plot it in 100 meter squares so that I can be able to implement the emissions data.
+As a user I need to be able to break down each square in to proportions of what type of road is in each square, so that I know what makes up each square.
+As a user I need to be able to be able to zoom into the squares and see it in greater detail so that I can see with more clarity what I’m looking at.
+As a user I want to be able to see the road names associated with each so that I can distinguish each road
+As a user I want to be able to access the map in a web application so that I can access it from any computer
