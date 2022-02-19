@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <h1>HomePage</h1>
     <meta charset="UTF-8">
     <title>Title</title>
-    <form method="post">
+    <form action="{% url 'search_results' %}" method="get">
             {% csrf_token %}
             {{ form.post }}
             <br>
+          <input name="name" type="text" placeholder="Search...">
+
             <button type="submit">Submit</button>
         </form>
 </head>
