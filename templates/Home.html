@@ -1,19 +1,52 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <h1>HomePage</h1>
+
+
+    <h1>Map Creation Kit 1.1</h1>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <form action="{% url 'search_results' %}" method="get">
+    <title>Map plotting WebApp</title>
+    <style>
+        h1 {
+        text-align: center}
+
+        #Search{
+            padding: 10px;
+            display: block;
+            text-align:center;
+  }
+        .Documentation{
+            padding: 10px;
+            display: block;
+            text-align: center;
+            background: gray;
+            font-size: large;
+            width:25%;
+            margin: auto;
+        }
+        body{
+            background: lightgrey;
+        }
+        .docheader{
+              text-decoration: underline;
+
+        }
+    </style>
+
+</head>
+<body>
+
+        <form id = Search action="{% url 'search_results' %}" method="get">
             {% csrf_token %}
-            {{ form.post }}
             <br>
           <input name="name" type="text" placeholder="Search...">
 
             <button type="submit">Submit</button>
         </form>
-</head>
-<body>
-
+<div class = "Documentation">
+    <p><h3 class = "docheader">Instructions</h3>
+        Welcome to the first working prototype of the map creation kit! Just enter the name of the city you want to map in the search bar then click search.</p>
+    </div>
 </body>
 </html>

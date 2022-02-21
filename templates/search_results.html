@@ -3,16 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+     <style>
+        h1 {
+        text-align: center}
+
+        #Search{
+            padding: 10px;
+            display: block;
+            text-align:center;
+  }
+        .Documentation{
+            padding: 10px;
+            display: block;
+            text-align: Left;
+            background: gray;
+            font-size: large;
+            width:fit-content;
+        }
+        body{
+            background: lightgrey;
+            text-align: center;
+        }
+        .docheader{
+              text-decoration: underline;
+
+        }
+    </style>
 </head>
 <body>
 <h1>Search Results</h1>
-
+<div  class="Documentation">
 <ul>
+<h3 class="docheader"> Road Names</h3>
   {% for way in Ways %}
     <li>
       {{ way.name}}
     </li>
   {% endfor %}
 </ul>
+</div>
 </body>
 </html>
