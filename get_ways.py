@@ -28,7 +28,7 @@ class Way:
         self.id = id
         self.nodes = nodes  #list of Nodes
         self.tags = tags    #dictionary with random info about the way
-
+        self.name = tags.get("name", "n/a")
 def getWays(file):
     map = parse(file)
     node_list = []              #list of Node objects

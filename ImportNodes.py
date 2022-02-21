@@ -1,11 +1,12 @@
 import overpy
-
+from get_ways import Node
+from get_ways import Way
 api = overpy.Overpass()
+
 def get_roads(city_name):
 # function to fetch all ways and nodes
-    try:
         result = api.query(f"""
-            [timeout:60][out:json];
+            [out:json];
         area[name ="{city_name}"];
         (
         way(area)
@@ -30,8 +31,14 @@ def get_roads(city_name):
         (._;>;);
         out body;
                 """)
-        return result.ways
-    except overpy.exception.OverpassTooManyRequests:
-        print("City has too many nodes for city to handle")
-    finally:
-        return None
+        waysoutput = []
+        for way in result.ways:
+            waysoutput.append(Way(way.id,way.nodes,way.tags))
+            print("Name: %s" % way.tags.get("name", "n/a"))
+            print("  Highway: %s" % way.tags.get("highway", "n/a"))
+            print("  Nodes:")
+            for node in way.nodes:
+                print("    Lat: %f, Lon: %f" % (node.lat, node.lon))
+
+        return waysoutput
+
