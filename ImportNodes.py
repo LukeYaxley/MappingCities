@@ -42,4 +42,3 @@ def get_roads(city_name):
 
         return waysoutput
 
-
