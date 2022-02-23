@@ -1,4 +1,4 @@
-
+import overpy
 from django.shortcuts import redirect, render
 
 import ImportNodes
@@ -13,7 +13,17 @@ class HomePageView(TemplateView):
 
 def SearchResultsView(request):
     query = request.GET.get('name')
-    Ways = ImportNodes.get_roads(query)
-    template_name = 'search_results.html'
-    return render(request, template_name, {'Ways': Ways})
+    Error = "No Error Found"
+    try:
+        Ways = ImportNodes.get_roads(query)
+        if len(Ways) == 0:
+            template_name = "Error.html"
+        else:
+            template_name = 'search_results.html'
+    except overpy.exception.OverpassBadRequest:
+        Error = "Query did not return any results"
+        template_name = "Error.html"
+        Ways = None
+
+    return render(request, template_name, {'Ways': Ways, 'Error':Error})
 
