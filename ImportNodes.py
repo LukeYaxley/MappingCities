@@ -1,5 +1,4 @@
 import overpy
-from get_ways import Node
 from get_ways import Way
 api = overpy.Overpass()
 

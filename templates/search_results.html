@@ -37,7 +37,7 @@
 <h3 class="docheader"> Road Names</h3>
   {% for way in Ways %}
     <li>
-      {{ way.name}}
+        {{ way.name}},{% for node in way.getNodes %}<li>ID: {{ node.id }} Latitude: {{ node.lat }} Longitude: {{ node.lon }}</li>{% endfor %}
     </li>
   {% endfor %}
 </ul>
