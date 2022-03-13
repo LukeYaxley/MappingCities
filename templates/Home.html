@@ -1,52 +1,74 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-
-
-    <h1>Map Creation Kit 1.1</h1>
-    <meta charset="UTF-8">
-    <title>Map plotting WebApp</title>
+    <!--Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Mapping Home</title>
     <style>
-        h1 {
-        text-align: center}
+        h2 {
+            padding: 10px;
+            text-align:center}
 
         #Search{
             padding: 10px;
             display: block;
             text-align:center;
-  }
+        }
         .Documentation{
             padding: 10px;
             display: block;
             text-align: center;
-            background: gray;
+            background: bisque;
             font-size: large;
             width:25%;
             margin: auto;
         }
         body{
-            background: lightgrey;
+            background: floralwhite;
         }
         .docheader{
               text-decoration: underline;
-
         }
-    </style>
 
+
+    </style>
 </head>
 <body>
-
-        <form id = Search action="{% url 'search_results' %}" method="get">
-            {% csrf_token %}
-            <br>
-          <input name="name" type="text" placeholder="Search...">
-
-            <button type="submit">Submit</button>
-        </form>
-<div class = "Documentation">
-    <p><h3 class = "docheader">Instructions</h3>
-        Welcome to the first working prototype of the map creation kit! Just enter the name of the city you want to map in the search bar then click search.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Mapping Cities</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
+</nav>
+<div>
+    <h2>United Kingdom</h2>
+    <form id=Search action="{% url 'search_results' %}" method="get">
+        {% csrf_token %}
+        <input name="name" type="text" placeholder="Search...">
+        <button type="submit" id="searchbtn">Submit</button>
+    </form>
+    <div class="Documentation">
+        <p>
+        <h3 class="docheader">Instructions</h3>
+        Welcome to the first working prototype of the map creation kit! Just enter the name of the city you want to map
+        in the search bar then click search.</p>
+    </div>
+</div>
+<!-- Footer -->
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <span class="text-muted">Mapping Cities In Python.</span>
+        <span class="text-center text-muted">Group 14 Project</span>
+    </footer>
+</div>
 </body>
 </html>
+
+
