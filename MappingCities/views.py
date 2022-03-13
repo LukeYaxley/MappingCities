@@ -26,7 +26,19 @@ def SearchResultsView(request):
             template_name = "Error.html"
         else:
             mapWayOrigin = Ways[0].getNodes()[0]
-            m = folium.Map(location=[mapWayOrigin.lat,mapWayOrigin.lon], zoom_start=13)
+            m = folium.Map(location=[mapWayOrigin.lat,mapWayOrigin.lon], zoom_start=13, min_zoom=12, max_zoom=15)
+            
+            grid = []
+            interval = 0.01 # Equivalent to ~1.1km size
+            
+            for lat in np.arange(49, 61, interval):
+                grid.append([[lat, -11],[lat, 2]])
+
+            for lon in np.arange(-11, 3, interval):
+                grid.append([[49, lon],[60, lon]])
+
+            for g in grid:
+                folium.PolyLine(g, color="black", weight=0.5, opacity=0.5).add_to(m)
 
             folium.LayerControl().add_to(m)
             m = m._repr_html_()
