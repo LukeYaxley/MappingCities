@@ -1,3 +1,4 @@
+import numpy as np
 import overpy
 from django.shortcuts import redirect, render
 import folium
@@ -24,7 +25,9 @@ def SearchResultsView(request):
         if len(Ways) == 0:
             template_name = "Error.html"
         else:
-            m = folium.Map(location=[54.38, -2.7], zoom_start=6.99)
+            mapWayOrigin = Ways[0].getNodes()[0]
+            m = folium.Map(location=[mapWayOrigin.lat,mapWayOrigin.lon], zoom_start=13)
+
             folium.LayerControl().add_to(m)
             m = m._repr_html_()
             template_name = 'search_results.html'
