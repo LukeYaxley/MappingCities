@@ -47,7 +47,13 @@ def SearchResultsView(request):
         Error = "Query did not return any results"
         template_name = "Error.html"
         Ways = None
+    except IndexError:
+        Error =" Coordinates not entered in correct format"
+        template_name = "Error.html"
+        Ways = None
 
 
-    return render(request, template_name, {'Ways': Ways, 'Error':Error, 'my_map': m})
+
+
+    return render(request, template_name, {'Ways': Ways, 'Error':Error})
 
