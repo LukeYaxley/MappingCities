@@ -1,16 +1,20 @@
-from ImportNodes import get_roads
 import pandas as pd
-from matplotlib import pyplot as plt
+import geopandas as gpd
+
 
 def RoadsDataframe(city_name):
-    roads = get_roads(city_name)
+    # roads = get_roads(city_name)
+    roads = city_name
     Nodes=[]
+
     for i in roads:
         for j in i.nodes:
-            Nodes.append([float(j.lon),float(j.lat),i.name])
+            Nodes.append([float(j.lat),float(j.lon),i.name, i.tags])
 
+    RoadsData = pd.DataFrame(Nodes, columns=["latitude","longitude","roadName","tags"])
 
-    RoadsData = pd.DataFrame(Nodes, columns=["longitude","latitude","roadName"])
-    print(RoadsData)
+    # crs = {'init': 'epsg:4326'}
+    # polygon = gpd.GeoDataFrame(index=[0], crs=crs, geometry=[polygon_geom])
+    return RoadsData
 
-RoadsDataframe("Dereham")
+# RoadsDataframe("Dereham")

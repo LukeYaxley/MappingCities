@@ -39,7 +39,6 @@ def get_roads(city_name):
                 """)
         waysoutput = []
 
-
         for way in result.ways:
                 waysoutput.append(Way(way.id, way.nodes, way.tags))
                 print("Name: %s" % way.tags.get("name", "n/a"))
@@ -50,6 +49,4 @@ def get_roads(city_name):
 
         return waysoutput
 
-
-        return waysoutput
 
