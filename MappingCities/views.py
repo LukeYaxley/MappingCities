@@ -57,7 +57,7 @@ def SearchResultsView(request):
                         temp_lat_list.append(node.lat)
                         temp_lon_list.append(node.lon)
                         temp_geom_list = zip(temp_lat_list, temp_lon_list)
-                        major = folium.vector_layers.PolyLine(temp_geom_list, popup='MajorRoad', tooltip='Major_Road',color='red', weight=5).add_to(m1)
+                        major = folium.vector_layers.PolyLine(temp_geom_list, popup='MajorRoad', tooltip=way.name,color='red', weight=5).add_to(m1)
 
                         coords_1 = [temp_lat_list[0],temp_lon_list[0]]
                         length_m = len(temp_lat_list)
@@ -74,7 +74,7 @@ def SearchResultsView(request):
                         temp_lat_list.append(node.lat)
                         temp_lon_list.append(node.lon)
                         temp_geom_list = zip(temp_lat_list, temp_lon_list)
-                        minor = folium.vector_layers.PolyLine(temp_geom_list, popup='MinorRoad', tooltip='Minor_Road',color='Blue', weight=2).add_to(m2)
+                        minor = folium.vector_layers.PolyLine(temp_geom_list, popup='MinorRoad', tooltip=way.name,color='Blue', weight=2).add_to(m2)
 
                         coords_1 = [temp_lat_list[0],temp_lon_list[0]]
                         length_mi = len(temp_lat_list)
@@ -109,4 +109,3 @@ def SearchResultsView(request):
         Ways = None
 
     return render(request, template_name, {'Ways': Ways, 'Error':Error, 'my_map': m, 'Primary': primary_road, 'Secondary': secondary_road})
-
