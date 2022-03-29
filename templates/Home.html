@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,14 +28,31 @@
             width:25%;
             margin: auto;
         }
+        .sample{
+            padding: 10px;
+            display: block;
+            text-align: center;
+            margin: auto;
+            width:25%;
+        }
         body{
             background: floralwhite;
         }
         .docheader{
               text-decoration: underline;
         }
-
-
+        img {
+            width: 100%;
+            padding: 10px;
+            display: block;
+            text-align: center;
+            margin: auto;
+            width:25%;
+        }
+        .error{
+            color: #c40202;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -49,6 +67,9 @@
 </nav>
 <div>
     <h2>United Kingdom</h2>
+    <h5 class="error">
+        {{Error}}
+    </h5>
     <form id=Search action="{% url 'search_results' %}" method="get">
         {% csrf_token %}
         <input name="name" type="text" placeholder="Search...">
@@ -59,9 +80,50 @@
         <h3 class="docheader">Instructions</h3>
         Welcome to the first working prototype of the map creation kit! Just enter the coordinates you want to map
         in the search bar then click search.
-        Make sure coordinates are in the following format <b>latitude1,longitude1,latitude2,longitude2</b> make sure the two sets of coordinates are at opposite sides of the rectangle</p>
+        Make sure coordinates are in the following format <b>latitude1,longitude1,latitude2,longitude2</b> make sure the
+        two sets of coordinates are at opposite sides of the rectangle</p>
     </div>
 </div>
+
+<script>
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("cord");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the sample value : " + copyText.value);
+}
+
+
+
+
+</script>
+<div class="sample">
+    <input type="text" value="57.1530,-2.0992,57.1448,-2.0852" id="cord" readonly>
+    <button onclick="myFunction()">Copy</button>
+    <br>
+    <a href="https://www.openstreetmap.org/export#map=16/57.1489/-2.0895"
+       onclick="window.open('https://www.openstreetmap.org/export#map=16/57.1489/-2.0895',
+                         'newwindow',
+                         'width=1250,height=750');
+              return false;"
+    >Export Custom Co-ordinates</a>
+    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-2.0991826057434086%2C57.144819850526126%2C-2.085192203521729%2C57.15299104414323&amp;layer=mapnik&amp;marker=57.1489056729221%2C-2.0921874046325684"
+            style="border: 1px solid black"></iframe>
+
+    <br/>
+</div>
+
+<img src="{% static 'Example.jpg' %}" alt="Image" style="width:425px;height:350px;border: 1px solid black">
+
 <!-- Footer -->
 <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -71,5 +133,3 @@
 </div>
 </body>
 </html>
-
-

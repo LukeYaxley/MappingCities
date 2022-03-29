@@ -22,7 +22,7 @@ def SearchResultsView(request):
         Ways_geo = PlotWays.RoadsDataframe(Ways)
 
         if len(Ways) == 0:
-            template_name = "Error.html"
+            template_name = "Home.html"
         else:
 
             mapWayOrigin = Ways[0].getNodes()[0]
@@ -96,16 +96,15 @@ def SearchResultsView(request):
             m2.add_to(m)
             folium.LayerControl().add_to(m)
             m = m._repr_html_()
-
             template_name = 'search_results.html'
     except overpy.exception.OverpassBadRequest:
         m = False
         Error = "Query did not return any results"
-        template_name = "Error.html"
+        template_name = "Home.html"
         Ways = None
     except IndexError:
         Error =" Coordinates not entered in correct format"
-        template_name = "Error.html"
+        template_name = "Home.html"
         Ways = None
 
     return render(request, template_name, {'Ways': Ways, 'Error':Error, 'my_map': m, 'Primary': primary_road, 'Secondary': secondary_road})
