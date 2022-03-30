@@ -15,7 +15,7 @@ Next run the following commands.</p>
 
 
 <h2>About this Project</h2>
-<p>This project is a webapp to generate roadmap of a given section of city. This will allow scientists who are looking to graph pollution to overlay pollution data over the top.</p>
+<p>This project is a webapp to generate roadmap of a given section of city. This will allow scientists who are looking to graph pollution to overlay pollution data over the top. Unfortunately we were unable to finish by giving the ability to upload pollution data as a csv but that would have been the next story</p>
 <h3>Dependencies (libraries you need to have installed)</h3>
 <ul>
 <li>os</li>
