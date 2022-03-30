@@ -22,17 +22,17 @@ Next run the following commands.</p>
 <p>Just type into the cmd the following command
 pip install *name of module*
 
-Only the modules marked in red need to be installed
+Only the modules that are in bold need to be installed
 <p>
 <ul>
 <li>os</li>
 <li>sys</li>
-<li style="color:red">pandas</li>
-<li style="color:red">geopandas</li>
-<li style="color:red">folium</li>
-<li style="color:red">overpy</li>
-<li style="color:red">geopy</li>
-<li style="color:red">django</li>
-<li style="color:red">numpy </li>
+<li><b>pandas</b></li>
+<li><b>geopandas</b></li>
+<li><b>folium</b></li>
+<li><b>overpy</b></li>
+<li><b>geopy</b></li>
+<li><b>django</b></li>
+<li><b>numpy </b></li>
 </ul>
 
