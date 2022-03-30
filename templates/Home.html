@@ -53,6 +53,10 @@
             color: #c40202;
             text-align: center;
         }
+        .DrawMap{
+        display: block;
+        text-align: center;
+        }
 
     </style>
 </head>
@@ -101,37 +105,38 @@ function myFunction() {
   alert("Copied the sample value : " + copyText.value);
 }
 
+
 </script>
 <br>
+<div class="DrawMap">
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title></title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="googlebot" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title></title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/result-light.css">
 
-    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+        <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/npm/leaflet-path-drag@1.0.0-beta.2/src/Path.Drag.js"></script>
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-editable/1.2.0/Leaflet.Editable.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css">
+        <link rel="stylesheet" type="text/css"
+              href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
 
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
-    <script type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/leaflet-path-drag@1.0.0-beta.2/src/Path.Drag.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-editable/1.2.0/Leaflet.Editable.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
-
-    <style id="compiled-css" type="text/css">
+        <style id="compiled-css" type="text/css">
           #navigation
     {
        z-index:900;
@@ -146,6 +151,7 @@ function myFunction() {
        width: 900px;
        height: 500px;
        z-index:0;
+       margin:auto;
     }
     table.td#map_table
     {
@@ -159,13 +165,14 @@ function myFunction() {
         /* EOS */
 
 
-    </style>
 
-    <script id="insert"></script>
+        </style>
+
+        <script id="insert"></script>
 
 
-    <script src="/js/stringify.js?4ad3f7c0046d2bdb23263e3f2718c41551d72fde" charset="utf-8"></script>
-    <script>
+        <script src="/js/stringify.js?4ad3f7c0046d2bdb23263e3f2718c41551d72fde" charset="utf-8"></script>
+        <script>
       const customConsole = (w) => {
         const pushToConsole = (payload, type) => {
           w.parent.postMessage({
@@ -240,34 +247,35 @@ function myFunction() {
       }
 
 
-    </script>
-</head>
-<body class="">
-<body>
-<table class="table table-responsive">
-    <tr>
-        <td>
-            Latitude1 <input type="text" name="North" id="north" value="" size="5"/>
-            Latitude2 <input type="text" name="South" id="south" value="" size="5"/>
-            Longitude2 <input type="text" name="East" id="east" value="" size="5"/>
-            Longitude1 <input type="text" name="West" id="west" value="" size="5"/>&nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div id="map"></div>
-        </td>
-    </tr>
-</table>
-</body>
-<script type="text/javascript">//<![CDATA[
+
+        </script>
+    </head>
+    <body class="">
+    <body>
+    <table class="table table-responsive">
+        <tr>
+            <td>
+                Latitude1 <input type="text" name="North" id="north" value="" size="5"/>
+                Longitude1 <input type="text" name="West" id="west" value="" size="5"/>
+                Latitude2 <input type="text" name="South" id="south" value="" size="5"/>
+                Longitude2 <input type="text" name="East" id="east" value="" size="5"/>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="map"></div>
+            </td>
+        </tr>
+    </table>
+    </body>
+    <script type="text/javascript">//<![CDATA[
 
 
 var form_coord = ['north','east','south','west'];
 //$('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 function two_decimal_places(n)
 {
-   var coordinate = n.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
+   var coordinate = n.toString().match(/^-?\d+(?:\.\d{0,4})?/)[0]
    return coordinate;
 }
 
@@ -398,9 +406,10 @@ var map = L.map('map', {editable: true}).setView(startPoint, 11),
 
   //]]>
 
-</script>
 
-<script>
+    </script>
+
+    <script>
     // tell the embed parent frame the height of the content
     if (window.parent && window.parent.parent){
       window.parent.parent.postMessage(["resultsFrame", {
@@ -413,9 +422,10 @@ var map = L.map('map', {editable: true}).setView(startPoint, 11),
     window.name = "result"
 
 
-</script>
 
-<script>
+    </script>
+
+    <script>
       let allLines = []
 
       window.addEventListener("message", (message) => {
@@ -430,13 +440,11 @@ var map = L.map('map', {editable: true}).setView(startPoint, 11),
           }
         }
       })
+    </script>
 
-
-</script>
-
-</body>
-</html>
-
+    </body>
+    </html>
+</div>
 <div class="sample">
     <input type="text" value="57.1530,-2.0992,57.1448,-2.0852" id="cord" readonly>
     <button onclick="myFunction()">Copy</button>
