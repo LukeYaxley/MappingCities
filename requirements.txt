@@ -1,0 +1,7 @@
+pandas
+geopandas
+folium
+overpy
+geopy
+Django
+numpy 
