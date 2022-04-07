@@ -107,5 +107,8 @@ def SearchResultsView(request):
         Error =" Coordinates not entered in correct format"
         template_name = "Home.html"
         Ways = None
-
+    except ValueError:
+        Error = " Coordinates need to be numbers"
+        template_name = "Home.html"
+        Ways = None
     return render(request, template_name, {'Ways': Ways, 'Error':Error, 'my_map': m, 'Primary': primary_road, 'Secondary': secondary_road})
